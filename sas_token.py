@@ -40,5 +40,5 @@ file_path = "/home/tamryn/devopsTraining/blob-storage-sas/textfile.txt"
 with open(file_path, "rb") as data:
     blob_client_sas.upload_blob(data, overwrite=True)
 
-print(f"File '{file_path}' uploaded successfully to.")
-print(f"sas_url: {sas_url} ")
+print(f"File '{file_path}' uploaded successfully.")
+# print(f"sas_url: {sas_url} ")
