@@ -24,3 +24,9 @@ jobs:
 
     - name: Step 5 - Run upload script
       run: python sas_token.py
+
+    - name: Step 6 - Generate SAS Token
+      run: bash generate_sas_token.sh
+
+    - name: Step 7 - Use the SAS Token
+      run: echo "The SAS URL is $SAS_URL"
