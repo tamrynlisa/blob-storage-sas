@@ -36,7 +36,7 @@ sas_url = f"{blob_client.url}?{sas_token}"
 blob_client_sas = BlobClient.from_blob_url(blob_url=sas_url)
 
 # Upload a file to the blob using the SAS token
-file_path = "/home/tamryn/devopsTraining/blob-storage-sas/textfile.txt"
+file_path = "textfile.txt"
 with open(file_path, "rb") as data:
     blob_client_sas.upload_blob(data, overwrite=True)
 
