@@ -18,17 +18,23 @@ jobs:
     - name: Step 3 - Install dependencies
       run: pip install azure-storage-blob
 
-    - name: Step 4 - Export AZURE_STORAGE_ACCOUNT_KEY
-      run: echo "AZURE_STORAGE_ACCOUNT_KEY=${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}" >> $GITHUB_ENV
+    # - name: Step 4 - Export AZURE_STORAGE_ACCOUNT_KEY
+    #   run: echo "AZURE_STORAGE_ACCOUNT_KEY=${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}" >> $GITHUB_ENV
 
-    - name: Step 5 - Run upload script
-      run: python sas_token.py
+    # - name: Step 5 - Run upload script
+    #   run: python sas_token.py
 
-    - name: Log in to Azure CLI
+    #   AZ CLI section
+    - name: Step 6 - Log in to Azure CLI
       uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SERVICE_PRINCIPAL_CREDENTIALS }}
 
-    - name: Step 6 - Generate SAS Token
+    # - name: Step 6 - Log in to Azure using Managed Identity
+    #   run: az login --identity
+
+    - name: Step 7 - Generate SAS Token and Inject into GitHub
       run: bash generate_sas_token.sh
 
-    - name: Step 7 - Use the SAS Token
-      run: echo "The SAS URL is $SAS_URL"
+    - name: Step 8 - Upload file using SAS URL
+      run: python upload.py

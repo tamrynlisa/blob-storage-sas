@@ -5,7 +5,7 @@ SAS_TOKEN=$(az storage blob generate-sas \
     --container-name files \
     --name uploadedtextfile \
     --permissions acdrw \
-    --expiry 2024-08-26T23:59:00Z \
+    --expiry 2024-08-30T23:59:00Z \
     --auth-mode login \
     --as-user \
     --full-uri \
