@@ -16,14 +16,16 @@ jobs:
         python-version: '3.10'
         
     - name: Step 3 - Install dependencies
-      run: |
-        pip install azure-storage-blob
+      run: pip install azure-storage-blob
 
     - name: Step 4 - Export AZURE_STORAGE_ACCOUNT_KEY
       run: echo "AZURE_STORAGE_ACCOUNT_KEY=${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}" >> $GITHUB_ENV
 
     - name: Step 5 - Run upload script
       run: python sas_token.py
+
+    - name: Log in to Azure CLI
+      uses: azure/login@v1
 
     - name: Step 6 - Generate SAS Token
       run: bash generate_sas_token.sh
