@@ -3,8 +3,8 @@
 SAS_TOKEN=$(az storage blob generate-sas \
     --account-name stazureblobstorageex \
     --container-name files \
-    --name uploadedtextfile \
-    --permissions r \
+    --name uploadedtextfileCLI \
+    --permissions acdrw \
     --expiry 2024-08-30T23:59:00Z \
     --auth-mode login \
     --as-user \
