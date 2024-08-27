@@ -18,11 +18,11 @@ jobs:
     - name: Step 3 - Install dependencies
       run: pip install azure-storage-blob
 
-    # - name: Step 4 - Export AZURE_STORAGE_ACCOUNT_KEY
-    #   run: echo "AZURE_STORAGE_ACCOUNT_KEY=${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}" >> $GITHUB_ENV
+    - name: Step 4 - Export AZURE_STORAGE_ACCOUNT_KEY
+      run: echo "AZURE_STORAGE_ACCOUNT_KEY=${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}" >> $GITHUB_ENV
 
-    # - name: Step 5 - Run upload script
-    #   run: python sas_token.py
+    - name: Step 5 - Run upload script
+      run: python sas_token.py
 
     #   AZ CLI section
     - name: Step 6 - Log in to Azure CLI

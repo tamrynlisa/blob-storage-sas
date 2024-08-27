@@ -10,4 +10,4 @@ file_path = "textfile.txt"
 with open(file_path, 'rb') as data:
     blob_client.upload_blob(data, overwrite=True)
 
-print(f"File '{file_path}' uploaded successfully.")
+print(f"File '{file_path}' uploaded successfully with SAS using AZ CLI.")
